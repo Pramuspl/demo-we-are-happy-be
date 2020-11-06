@@ -33,6 +33,26 @@ Use cases
   - of the current week
   - of the current month
 
+## Tools Used
+
+- NestJS
+- MongoDB with Mongoose
+
+## MongoDB Setup
+
+Before running the app it's necessary to install MongoDB and start the database on the machine
+
+```bash
+# Install MongoDB
+sudo apt-get install mongodb
+
+# Start MongoDB
+sudo service mongodb start
+
+# Verify that the DB is running (the value of "ok" field should be 1)
+mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+```
+
 ## Installation
 
 ```bash
