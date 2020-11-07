@@ -1,12 +1,14 @@
 # We Are Happy Back-End
 
+## Go to section
+
+- [Description](#description)
+- [Tools Used](#tools-used)
+- [Installation](#installation)
+- [Running the app](#running-the-app)
+- [Testing](#testing)
+
 ## Description
-
-Demo application of a happiness measurement app.
-
-Back-End developed using NestJS.
-
-## The assignment
 
 Functionality
 Company WeAreHappy wants to have an idea of the happiness of its employees. In
@@ -35,12 +37,17 @@ Use cases
 
 ## Tools Used
 
-- NestJS
-- MongoDB with Mongoose
+[Back to top](#We-Are-Happy-Back-End)
 
-## MongoDB Setup
+- Framework: NestJS
+- Database: MongoDB with Mongoose
+- Authentication: Passport.js, JWT
 
-Before running the app it's necessary to install MongoDB and start the database on the machine
+## Installation
+
+[Back to top](#We-Are-Happy-Back-End)
+
+Before running the app it's necessary to install MongoDB, start the database on the machine and install the app itself.
 
 ```bash
 # Install MongoDB
@@ -53,13 +60,13 @@ sudo service mongodb start
 mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 ```
 
-## Installation
-
 ```bash
 $ npm install
 ```
 
 ## Running the app
+
+[Back to top](#We-Are-Happy-Back-End)
 
 ```bash
 # development
@@ -73,6 +80,8 @@ $ npm run start:prod
 ```
 
 ## Test
+
+[Back to top](#We-Are-Happy-Back-End)
 
 ```bash
 # unit tests

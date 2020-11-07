@@ -5,7 +5,9 @@ import {
   NotFoundException,
   Param,
   Post,
+  UseGuards,
 } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { CreateEntryDTO } from './dto/createEntry.dto';
 import { HappinessService } from './happiness.service';
 import { ValidateObjectId } from './shared/validate-object-id.pipe';
@@ -24,6 +26,7 @@ export class HappinessController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get('entry/all')
   async getAllEntries() {
     return this.happinessService.getAllEntries();

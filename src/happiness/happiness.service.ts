@@ -11,11 +11,11 @@ export class HappinessService {
   ) {}
 
   async addEntry(createEntryDTO: CreateEntryDTO): Promise<Entry> {
-    const newEntry = await new this.entryModel(createEntryDTO);
-    return newEntry.save();
+    const newEntry = new this.entryModel(createEntryDTO);
+    return await newEntry.save();
   }
 
-  async getEntry(entryID): Promise<Entry> {
+  async getEntry(entryID: Entry['_id']): Promise<Entry | undefined> {
     return await this.entryModel.findById(entryID).exec();
   }
 
