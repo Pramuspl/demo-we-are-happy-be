@@ -8,6 +8,5 @@ const enum Values {
 
 export interface Entry extends Document {
   readonly date: string;
-  readonly user: string;
   readonly value: Values;
 }

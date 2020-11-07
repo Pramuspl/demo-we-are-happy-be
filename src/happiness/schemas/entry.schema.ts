@@ -9,10 +9,6 @@ export const EntrySchema = new mongoose.Schema({
       message: 'Not a valid date',
     },
   },
-  user: {
-    type: String,
-    required: true,
-  },
   value: {
     type: String,
     enum: ['BAD', 'NEUTRAL', 'GOOD'],

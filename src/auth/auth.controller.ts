@@ -30,6 +30,7 @@ export class AuthController {
     return this.authService.login(req.user);
   }
 
+  // Remove after development
   @UseGuards(JwtAuthGuard)
   @Get('verifyToken')
   async verifyLogin(@Headers('Authorization') authorization: string) {

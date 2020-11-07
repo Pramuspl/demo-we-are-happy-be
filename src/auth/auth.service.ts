@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/users/interfaces/user.interface';
 import { UsersService } from 'src/users/users.service';
@@ -36,5 +36,21 @@ export class AuthService {
     const { ...newUser } = await this.usersService.addUser(userData);
     delete newUser.password;
     return newUser;
+  }
+
+  async checkPermission(authorization: string, role: string) {
+    const authRole = await this.getUserRole(authorization);
+    if (authRole !== role) {
+      throw new UnauthorizedException(
+        'You are not allowed to perform this action',
+      );
+    }
+  }
+
+  async getUserRole(authorization: string) {
+    const { role } = await this.jwtService.verify(authorization.split(' ')[1], {
+      secret: process.env.JWT_SECRET,
+    });
+    return role;
   }
 }

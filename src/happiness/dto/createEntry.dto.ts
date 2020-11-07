@@ -6,6 +6,5 @@ const enum Values {
 
 export class CreateEntryDTO {
   readonly date: string;
-  readonly user: string;
   readonly value: Values;
 }

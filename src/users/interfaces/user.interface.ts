@@ -1,8 +1,8 @@
 import { Document } from 'mongoose';
 
-const enum Roles {
-  EMPLOYEE,
-  MANAGER,
+export const enum Roles {
+  EMPLOYEE = 'EMPLOYEE',
+  MANAGER = 'MANAGER',
 }
 
 export interface User extends Document {
