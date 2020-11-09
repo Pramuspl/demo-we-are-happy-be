@@ -15,7 +15,7 @@ export class AuthService {
     username: User['username'],
     password: User['password'],
   ): Promise<any> {
-    const user = await (await this.usersService.getUser(username)).toObject();
+    const user = (await this.usersService.getUser(username))?.toObject();
     if (user && (await bcrypt.compare(password, user.password))) {
       const { ...result } = user;
       delete result.password;

@@ -1,0 +1,20 @@
+enum Moods {
+  BAD
+  NEUTRAL
+  GOOD
+}
+
+type Entry {
+  _id: String!
+  date: String!
+  value: Moods!
+}
+
+type Mutation {
+  addEntry(date: String!, value: Moods!): Entry
+}
+
+type Query {
+  getEntry(entryID: String!): Entry
+  getAllEntries: [Entry]
+}

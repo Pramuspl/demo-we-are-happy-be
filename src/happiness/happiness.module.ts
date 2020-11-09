@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { EntrySchema } from './schemas/entry.schema';
 import { AuthModule } from 'src/auth/auth.module';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { HappinessResolver } from './happiness.resolver';
 
 @Module({
   imports: [
@@ -12,6 +13,6 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
     AuthModule,
   ],
   controllers: [HappinessController],
-  providers: [HappinessService, JwtAuthGuard],
+  providers: [HappinessService, JwtAuthGuard, HappinessResolver],
 })
 export class HappinessModule {}

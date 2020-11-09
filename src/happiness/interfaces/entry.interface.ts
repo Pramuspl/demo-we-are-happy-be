@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-const enum Values {
+const enum Moods {
   BAD,
   NEUTRAL,
   GOOD,
@@ -8,5 +8,5 @@ const enum Values {
 
 export interface Entry extends Document {
   readonly date: string;
-  readonly value: Values;
+  readonly value: Moods;
 }

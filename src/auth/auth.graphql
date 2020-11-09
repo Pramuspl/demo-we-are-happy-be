@@ -1,0 +1,19 @@
+enum Roles {
+  EMPLOYEE
+  MANAGER
+}
+
+type Auth {
+  access_token: String!
+}
+
+type User {
+  _id: String!
+  username: String!
+  role: Roles!
+}
+
+type Mutation {
+  login(username: String!, password: String!): Auth
+  register(username: String!, password: String!, role: Roles): User
+}

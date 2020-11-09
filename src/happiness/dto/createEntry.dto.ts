@@ -1,4 +1,4 @@
-const enum Values {
+const enum Moods {
   BAD,
   NEUTRAL,
   GOOD,
@@ -6,5 +6,5 @@ const enum Values {
 
 export class CreateEntryDTO {
   readonly date: string;
-  readonly value: Values;
+  readonly value: Moods;
 }
