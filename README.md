@@ -64,6 +64,17 @@ mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 $ npm install
 ```
 
+## (Optional) Database seeding
+
+[Back to top](#We-Are-Happy-Back-End)
+
+`/mongodb_seed` directory contains mock data for the database. To pre-populate the database with it, run the following commands:
+
+```bash
+$ npm install -g mongo-seeding-cli
+$ seed -u 'mongodb://localhost:27017/weAreHappy' --drop-database ./mongodb_seed
+```
+
 ## Running the app
 
 [Back to top](#We-Are-Happy-Back-End)

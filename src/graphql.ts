@@ -19,6 +19,7 @@ export enum Moods {
 
 export class Auth {
     __typename?: 'Auth';
+    role: Roles;
     access_token: string;
 }
 
