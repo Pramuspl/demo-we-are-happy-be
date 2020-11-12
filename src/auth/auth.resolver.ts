@@ -1,6 +1,6 @@
 import { Mutation, Resolver, Args } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { LocalStrategy } from './local.strategy';
+import { LocalStrategy } from './strategies/local.strategy';
 
 @Resolver('Auth')
 export class AuthResolver {

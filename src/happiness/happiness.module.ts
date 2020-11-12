@@ -4,7 +4,7 @@ import { HappinessService } from './happiness.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { EntrySchema } from './schemas/entry.schema';
 import { AuthModule } from 'src/auth/auth.module';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { HappinessResolver } from './happiness.resolver';
 
 @Module({

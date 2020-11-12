@@ -4,13 +4,13 @@
 
 - [Description](#description)
 - [Tools Used](#tools-used)
+- [Projects Structure](#project-structure)
 - [Installation](#installation)
 - [Running the app](#running-the-app)
 - [Testing](#testing)
 
 ## Description
 
-Functionality
 Company WeAreHappy wants to have an idea of the happiness of its employees. In
 order to do so, they need a system to capture that happiness anonymously. When
 going home from a hard day's work, each employee can indicate how their day
@@ -41,7 +41,30 @@ Use cases
 
 - Framework: NestJS
 - Database: MongoDB with Mongoose
-- Authentication: Passport.js, JWT
+- API: REST and GraphQL
+- Authentication: Passport.js, JWT, bcrypt
+
+## Project structure
+
+[Back to top](#We-Are-Happy-Back-End)
+
+The application is divided into respective modules:
+
+- `auth` - responsible for authentication and authorization. It uses `passport.js` with `local` strategy and generates `JWT` token for later authorization.
+- `happiness` - responsible for handling Entries (votes). It allows to create and fetch Entries (including filtering) with respect to requester's permissions.
+- `users` - defines Users and handles related actions.
+
+Modules file structure varies slightly but generally is following:
+
+- `/dto` - Data Transfer Objects
+- `/helpers` - helper files
+- `/interfaces` - interfaces and enums for the module
+- `/schemas` - MongoDB/Mongoose schemas of related collections
+- `.controller` - controller responsible for REST calls
+- `.graphql` - GraphQL enums, types, queries and mutations
+- `.module` - module file binding together its components
+- `.resolver` - controller equivalent responsible for GraphQL calls
+- `.service` - service responsible for logic and database calls
 
 ## Installation
 
@@ -74,6 +97,11 @@ $ npm install
 $ npm install -g mongo-seeding-cli
 $ seed -u 'mongodb://localhost:27017/weAreHappy' --drop-database ./mongodb_seed
 ```
+
+Besides seeding entries, it also creates two mock users:
+
+- `employee/employee` with employee permission
+- `manager/manager` with manager permission
 
 ## Running the app
 

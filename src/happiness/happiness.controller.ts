@@ -9,12 +9,12 @@ import {
   Headers,
 } from '@nestjs/common';
 import { AuthService } from 'src/auth/auth.service';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CreateEntryDTO } from './dto/createEntry.dto';
 import { HappinessService } from './happiness.service';
-import { ValidateObjectIdPipe } from './shared/pipes/validate-object-id.pipe';
+import { ValidateObjectIdPipe } from './helpers/pipes/validate-object-id.pipe';
 import { Roles } from './../users/interfaces/user.interface';
-import { ValidateDatePipe } from './shared/pipes/validate-date.pipe';
+import { ValidateDatePipe } from './helpers/pipes/validate-date.pipe';
 
 @Controller('happiness')
 export class HappinessController {

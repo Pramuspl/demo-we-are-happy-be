@@ -1,11 +1,11 @@
 import { UseGuards } from '@nestjs/common';
 import { Mutation, Resolver, Args, Query, Context } from '@nestjs/graphql';
 import { AuthService } from 'src/auth/auth.service';
-import { JwtAuthGraphQLGuard } from 'src/auth/jwt-auth-graphql.guard';
+import { JwtAuthGraphQLGuard } from 'src/auth/guards/jwt-auth-graphql.guard';
 import { HappinessService } from './happiness.service';
-import { ValidateObjectIdPipe } from './shared/pipes/validate-object-id.pipe';
+import { ValidateObjectIdPipe } from './helpers/pipes/validate-object-id.pipe';
 import { Roles } from './../users/interfaces/user.interface';
-import { ValidateDatePipe } from './shared/pipes/validate-date.pipe';
+import { ValidateDatePipe } from './helpers/pipes/validate-date.pipe';
 
 @Resolver('Happiness')
 export class HappinessResolver {
