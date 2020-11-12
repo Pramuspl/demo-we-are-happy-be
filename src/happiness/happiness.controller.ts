@@ -14,6 +14,7 @@ import { CreateEntryDTO } from './dto/createEntry.dto';
 import { HappinessService } from './happiness.service';
 import { ValidateObjectIdPipe } from './shared/pipes/validate-object-id.pipe';
 import { Roles } from './../users/interfaces/user.interface';
+import { ValidateDatePipe } from './shared/pipes/validate-date.pipe';
 
 @Controller('happiness')
 export class HappinessController {
@@ -33,10 +34,14 @@ export class HappinessController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('entry/all')
-  async getAllEntries(@Headers('Authorization') authorization: string) {
+  @Get('entry/all/:from?/:to?')
+  async getAllEntries(
+    @Headers('Authorization') authorization: string,
+    @Param('from', new ValidateDatePipe()) from?: string,
+    @Param('to', new ValidateDatePipe()) to?: string,
+  ) {
     await this.authService.checkPermission(authorization, Roles.MANAGER);
-    return await this.happinessService.getAllEntries();
+    return await this.happinessService.getAllEntries(from, to);
   }
 
   @UseGuards(JwtAuthGuard)

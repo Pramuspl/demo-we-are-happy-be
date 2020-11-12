@@ -5,6 +5,6 @@ const enum Moods {
 }
 
 export class CreateEntryDTO {
-  readonly date: string;
+  readonly date: Date;
   readonly value: Moods;
 }

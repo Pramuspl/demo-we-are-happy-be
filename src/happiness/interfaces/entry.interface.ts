@@ -7,6 +7,6 @@ const enum Moods {
 }
 
 export interface Entry extends Document {
-  readonly date: string;
+  readonly date: Date;
   readonly value: Moods;
 }

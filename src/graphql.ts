@@ -43,7 +43,7 @@ export abstract class IMutation {
 export class Entry {
     __typename?: 'Entry';
     _id: string;
-    date: string;
+    date: Date;
     value: Moods;
 }
 
@@ -52,5 +52,5 @@ export abstract class IQuery {
 
     abstract getEntry(entryID: string): Entry | Promise<Entry>;
 
-    abstract getAllEntries(): Entry[] | Promise<Entry[]>;
+    abstract getAllEntries(from?: string, to?: string): Entry[] | Promise<Entry[]>;
 }

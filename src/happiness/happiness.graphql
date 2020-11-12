@@ -4,9 +4,11 @@ enum Moods {
   GOOD
 }
 
+scalar Date
+
 type Entry {
   _id: String!
-  date: String!
+  date: Date!
   value: Moods!
 }
 
@@ -16,5 +18,5 @@ type Mutation {
 
 type Query {
   getEntry(entryID: String!): Entry
-  getAllEntries: [Entry]
+  getAllEntries(from: String, to: String): [Entry]
 }

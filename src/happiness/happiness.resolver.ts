@@ -5,6 +5,7 @@ import { JwtAuthGraphQLGuard } from 'src/auth/jwt-auth-graphql.guard';
 import { HappinessService } from './happiness.service';
 import { ValidateObjectIdPipe } from './shared/pipes/validate-object-id.pipe';
 import { Roles } from './../users/interfaces/user.interface';
+import { ValidateDatePipe } from './shared/pipes/validate-date.pipe';
 
 @Resolver('Happiness')
 export class HappinessResolver {
@@ -34,9 +35,13 @@ export class HappinessResolver {
   }
   @UseGuards(JwtAuthGraphQLGuard)
   @Query()
-  async getAllEntries(@Context() context) {
+  async getAllEntries(
+    @Context() context,
+    @Args('from', new ValidateDatePipe()) from?,
+    @Args('to', new ValidateDatePipe()) to?,
+  ) {
     const authorization = context.req.headers.authorization;
     await this.authService.checkPermission(authorization, Roles.MANAGER);
-    return this.happinessService.getAllEntries();
+    return this.happinessService.getAllEntries(from, to);
   }
 }

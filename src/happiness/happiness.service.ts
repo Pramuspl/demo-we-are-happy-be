@@ -20,7 +20,12 @@ export class HappinessService {
     return entry;
   }
 
-  async getAllEntries(): Promise<Entry[]> {
-    return await this.entryModel.find().exec();
+  async getAllEntries(
+    from: string = new Date(-8640000000000000).toString(),
+    to: string = new Date(8640000000000000).toString(),
+  ): Promise<Entry[]> {
+    return await this.entryModel
+      .find({ date: { $gte: new Date(from), $lte: new Date(to) } })
+      .exec();
   }
 }

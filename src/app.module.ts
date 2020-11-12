@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { join } from 'path';
+import { GraphQLScalarType, Kind } from 'graphql';
 
 @Module({
   imports: [
@@ -18,6 +19,24 @@ import { join } from 'path';
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
         emitTypenameField: true,
+      },
+      resolvers: {
+        Date: new GraphQLScalarType({
+          name: 'Date',
+          description: 'Date custom scalar type',
+          parseValue(value) {
+            return new Date(value);
+          },
+          serialize(value) {
+            return value;
+          },
+          parseLiteral(ast) {
+            if (ast.kind === Kind.INT) {
+              return parseInt(ast.value, 10);
+            }
+            return null;
+          },
+        }),
       },
     }),
     ConfigModule.forRoot({ isGlobal: true }),
