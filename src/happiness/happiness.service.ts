@@ -21,7 +21,7 @@ export class HappinessService {
   }
 
   async getAllEntries(
-    from: string = new Date(-8640000000000000).toString(),
+    from: string = new Date('1970-01-01').toString(),
     to: string = new Date(8640000000000000).toString(),
   ): Promise<Entry[]> {
     return await this.entryModel
