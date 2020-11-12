@@ -6,6 +6,7 @@
 - [Tools Used](#tools-used)
 - [Projects Structure](#project-structure)
 - [Installation](#installation)
+- [(Optional) Database seeding](<#(optional)-database-seeding>)
 - [Running the app](#running-the-app)
 - [Testing](#testing)
 
@@ -16,7 +17,7 @@ order to do so, they need a system to capture that happiness anonymously. When
 going home from a hard day's work, each employee can indicate how their day
 was. There are 3 moods:
 
-:-) :-| :-(
+`:-) :-| :-(`
 
 The "vote" is stored anonymously in persistent storage on the back-end. This vote
 can be done via an HTTP API or via a simple web application. Both will need to be
@@ -39,12 +40,12 @@ Use cases
 
 [Back to top](#We-Are-Happy-Back-End)
 
-- Framework: NestJS
-- Database: MongoDB with Mongoose
-- API: REST and GraphQL
-- Authentication: Passport.js, JWT, bcrypt
+- Framework: `NestJS`
+- Database: `MongoDB` with `Mongoose`
+- API: `REST` and `GraphQL`
+- Authentication: `Passport.js`, `JWT`, `bcrypt`
 
-## Project structure
+## Project Structure
 
 [Back to top](#We-Are-Happy-Back-End)
 
@@ -87,7 +88,7 @@ mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 $ npm install
 ```
 
-## (Optional) Database seeding
+## (Optional) Database Seeding
 
 [Back to top](#We-Are-Happy-Back-End)
 
@@ -103,7 +104,7 @@ Besides seeding entries, it also creates two mock users:
 - `employee/employee` with employee permission
 - `manager/manager` with manager permission
 
-## Running the app
+## Running the App
 
 [Back to top](#We-Are-Happy-Back-End)
 
@@ -118,9 +119,11 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Testing
 
 [Back to top](#We-Are-Happy-Back-End)
+
+// TODO - implement tests
 
 ```bash
 # unit tests
